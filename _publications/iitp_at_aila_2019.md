@@ -24,7 +24,7 @@ Recommended Citation:
                Legal Assistance Shared Task},
   booktitle = {Working Notes of {FIRE} 2019 - Forum for Information Retrieval Evaluation,
                Kolkata, India, December 12-15, 2019},
-  series    = {{CEUR} Workshop Proceedings},
+  series    = {CEUR Workshop Proceedings},
   volume    = {2517},
   pages     = {19--24},
   publisher = {CEUR-WS.org},
