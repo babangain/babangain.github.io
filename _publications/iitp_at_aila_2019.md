@@ -9,7 +9,7 @@ paperurl:
 citation: 
 ---
 
-[Download paper here](http://academicpages.github.io/files/AILA_FIRE2019.pdf)
+[Download paper here](http://babangain.github.io/files/AILA_FIRE2019.pdf)
 
 
 Recommended Citation: 
