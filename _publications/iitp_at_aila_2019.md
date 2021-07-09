@@ -20,7 +20,7 @@ Recommended Citation:
                Arkadipta De and
                Tanik Saikh and
                Asif Ekbal},
-  title     = {{IITP} at {AILA} 2019: System Report for Artificial Intelligence for
+  title     = {IITP at AILA 2019: System Report for Artificial Intelligence for
                Legal Assistance Shared Task},
   booktitle = {Working Notes of {FIRE} 2019 - Forum for Information Retrieval Evaluation,
                Kolkata, India, December 12-15, 2019},
