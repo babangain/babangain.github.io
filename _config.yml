@@ -125,6 +125,15 @@ include:
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
+  - portfolio
+  - posts
+  - talks
+  - teaching
+  - archive-layout-with-content
+  - categories
+  - collection-archive
+  - markdown
+  - non-menu-page
   - .asset-cache
   - .bundle
   - .jekyll-assets-cache
