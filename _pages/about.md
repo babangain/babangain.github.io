@@ -9,3 +9,7 @@ redirect_from:
 ---
 
 I am a researcher at IIT Patna. I work on Natural Language Processing.
+
+{% include base_path %}
+
+{% for post in site.publications reversed %} {% include archive-single.html %} {% endfor %}
