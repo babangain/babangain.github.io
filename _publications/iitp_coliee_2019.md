@@ -13,6 +13,8 @@ citation:
 
 Also Known as: "IITP in COLIEE@ICAIL 2019: Legal Information Retrieval Using BM25 and BERT"  
 [Download alternate version](http://academicpages.github.io/files/iitp_in_coliee_at_icail_legal_information_retrieval_using_bm25_and_bert.pdf)  
+
+
 Recommended Citation: 
 <pre>
 @article{gain2019iitp,
