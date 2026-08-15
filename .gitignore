@@ -9,3 +9,6 @@ vendor
 recordings/
 scripts/node_modules/
 scripts/package-lock.json
+vendor/
+_site/
+
