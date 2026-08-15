@@ -1,27 +1,29 @@
-- url: mailto:nicolas.dufour@enpc.fr
-  icon: /assets/icons/mail.png
-  name: E-Mail
+- name: Email
+  label: gainbaban@gmail.com
+  url: mailto:gainbaban@gmail.com
+  icon: email
 
-- url: https://www.linkedin.com/in/nicolas-dufour/
-  icon: /assets/icons/linkedin.png
-  name: LinkedIn
+- name: GitHub
+  label: babangain
+  url: https://github.com/babangain
+  icon: github
 
-- url: /assets/about/cv.pdf
-  icon: /assets/icons/cv.png
-  name: CV
+- name: LinkedIn
+  label: babangain
+  url: https://www.linkedin.com/in/babangain/
+  icon: linkedin
 
-- url: https://twitter.com/nico_dufour
-  icon: /assets/icons/twitter.png
-  name: Twitter
-  
-- url: https://bsky.app/profile/nicolasdufour.bsky.social
-  icon: /assets/icons/bluesky.png
-  name: Bluesky
+- name: ORCID
+  label: 0000-0001-8673-7078
+  url: https://orcid.org/0000-0001-8673-7078
+  icon: orcid
 
-- url: https://scholar.google.com/citations?user=g_eDdc4AAAAJ&hl=en
-  icon: /assets/icons/scholar.png
-  name: Google Scholar
+- name: ACL Anthology
+  label: Publication profile
+  url: https://aclanthology.org/people/baban-gain/
+  icon: papers
 
-- url: https://github.com/nicolas-dufour
-  icon: /assets/icons/github.png
-  name: Github
+- name: DBLP
+  label: Publication record
+  url: https://dblp.org/pid/243/3240.html
+  icon: database

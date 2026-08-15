@@ -1,0 +1,64 @@
+I"�
+<div class="section">
+    <h2>Pipeline</h2>
+    <div style="width:80%; margin:auto">
+        <img src="/assets/publications/plonk/pipeline.png" />
+        <p>Our model operates in three main steps:</p>
+        <ol>
+            <li>A vision encoder Φ extracts features from the input image</li>
+            <li>A conditional flow matching model Ψ progressively denoises coordinates on the Earth's surface by predicting velocity fields at each timestep</li>
+            <li>An ODE solver integrates these velocity fields to obtain the final location distribution</li>
+        </ol>
+        <p>The denoising process operates directly on the Earth's surface using Riemannian flow matching, which ensures that all intermediate points remain valid geographical coordinates.</p>
+        <p>The model can handle location ambiguity through its probabilistic predictions - when an image could have been taken in multiple locations (like a football field), the model outputs a multi-modal distribution covering all plausible locations.</p>
+
+    </div>
+</div>
+<script>
+    let slideIndex = 3;
+    showSlides(slideIndex);
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    function adjustMapHeight() {
+        const currentSlide = document.getElementsByClassName("mySlides")[slideIndex - 1];
+        const image = currentSlide.querySelector(".slide-image img");
+        const mapContainer = currentSlide.querySelector(".slide-map");
+        
+        // Wait for image to load to get its height
+        if (image.complete) {
+            mapContainer.style.height = image.offsetHeight + "px";
+        } else {
+            image.onload = function() {
+                mapContainer.style.height = image.offsetHeight + "px";
+            }
+        }
+    }
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        
+        // Add this line to adjust map height after showing slide
+        adjustMapHeight();
+    }
+    // Add resize listener to handle window resizing
+    window.addEventListener('resize', adjustMapHeight);
+</script>
+
+:ET

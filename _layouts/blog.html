@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/logo.svg' | relative_url }}">
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header scrolled" id="top">
+    <div class="nav-shell">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Baban Gain, home">
+        <span class="brand-mark" aria-hidden="true">BG</span>
+        <span class="brand-name">Baban Gain</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="{{ '/' | relative_url }}#about">About</a>
+        <a href="{{ '/' | relative_url }}#publications">Publications</a>
+        <a class="active" href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a href="{{ '/' | relative_url }}#teaching">Teaching Assistantship</a>
+        <a href="{{ '/' | relative_url }}#recognitions">Recognitions</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="blog-page" id="main-content">
+    <section class="blog-index-hero">
+      <div class="page-shell">
+        <p class="section-index">Baban Gain / Blog</p>
+        <h1>Field notes on<br><em>language &amp; learning.</em></h1>
+        <p>Essays, paper notes, tutorials, and observations from research in multilingual NLP and machine translation.</p>
+      </div>
+    </section>
+
+    <section class="blog-index-list" aria-labelledby="articles-title">
+      <div class="page-shell">
+        <div class="blog-list-heading">
+          <h2 id="articles-title">All articles</h2>
+          <span>{{ site.posts.size | prepend: '0' | slice: -2, 2 }}</span>
+        </div>
+        {% if site.posts.size > 0 %}
+        <div class="blog-entries">
+          {% for post in site.posts %}
+          <article class="blog-entry">
+            <p class="post-meta"><span>{{ post.date | date: "%d %b %Y" }}</span>{% if post.tags.size > 0 %}<span>{{ post.tags | join: ' · ' }}</span>{% endif %}</p>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | strip_html | truncatewords: 36 }}</p>
+            <a class="publication-link" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="blog-empty">
+          <span aria-hidden="true">01</span>
+          <div>
+            <h2>The first note is being written.</h2>
+            <p>New writing on multilingual AI, translation, and research practice will appear here.</p>
+          </div>
+          <a class="button button-primary" href="mailto:{{ site.email }}">Suggest a topic</a>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer inner-footer">
+    <div class="page-shell">
+      <p>© <span id="current-year"></span> Baban Gain</p>
+      <p>Research · Language · Access</p>
+      <a href="{{ '/' | relative_url }}">Return home <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+  <script>
+    const root = document.documentElement;
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.primary-nav');
+    menuButton.addEventListener('click', () => {
+      const open = navigation.classList.toggle('is-open');
+      menuButton.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

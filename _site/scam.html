@@ -1,0 +1,273 @@
+<!-- FILEPATH: /Users/nicolasdufour/Documents/nicolas-dufour-personal-website/_layouts/home.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SCAM! Transferring humans between images with Semantic Cross Attention Modulation</title>
+        <link rel="stylesheet" href="/css/style_projects.css">
+        <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+        <link rel="alternate icon" type="image/png" href="/assets/favicon.png">
+        
+        <!-- <link rel="icon" type="image/png" href="/images/favicon.png"> -->
+        <meta name="description" content="This work introduces SCAM, a system for semantically conditioned image generation that targets both pose and subject transfer. Unlike existing methods, SCAM encodes rich information in each semantic region, including foreground and background, enabling precise generation with fine details. This is achieved through a Semantic Attention Transformer Encoder that extracts multiple latent vectors per region, and a generator that leverages these latents via cross-attention modulation. Our approach outperforms SEAN and SPADE on the iDesigner and CelebAMask-HD datasets, setting a new state-of-the-art for subject transfer.">
+        <meta name="keywords" content="image generation, semantic image synthesis, subject transfer, attention, transformer, GAN, SCAM, SEAN, SPADE">
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=ANALYTICS_TAG_PLACEHOLDER"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'ANALYTICS_TAG_PLACEHOLDER');
+        </script>
+        <script src="/scripts/projects.js"></script>
+    </head>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <button class="dropdown-btn">
+                <img src="/assets/icons/dropdown.svg" alt="Dropdown">
+            </button>
+            <ul>
+                <li><a href="/">Nicolas Dufour</a></li>
+                <li><a href="#">SCAM</a></li>
+                
+                <li><a href="#abstract">Abstract</a></li>
+                
+                
+                <li><a href="#approach">Approach</a></li>
+                
+                <li><a href="#poster">Poster</a></li>
+                
+                
+                <li><a href="#video">Video</a></li>
+                
+                
+                <li><a href="#bibtex">Bibtex</a></li>
+                
+            </ul>
+            <div class="nav-buttons">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="project-header">
+            
+            <h1 class="paper_title">SCAM! Transferring humans between images with Semantic Cross Attention Modulation</h1>
+            <p class="authors"><a href="/">Nicolas Dufour</a>, <a href="https://davidpicard.github.io/">David Picard</a>, <a href="http://vicky.kalogeiton.info/">Vicky Kalogeiton</a></p>
+            <p class="journal">ECCV 2022
+                
+            </p>
+            
+            <div class="paper_buttons">
+                
+                <a href="https://github.com/nicolas-dufour/SCAM" class="paper_button">
+                    <img height="50" src="/assets/icons/github.png" alt="Code">
+                    <span>Code</span>
+                </a>
+                
+                <a href="https://arxiv.org/abs/2210.04883" class="paper_button">
+                    <img height="50" src="/assets/icons/arxiv.png" alt="Paper">
+                    <span>Paper</span>
+                </a>
+                
+                <a href="/assets/publications/scam/poster.pdf" class="paper_button">
+                    <img height="50" src="/assets/icons/pdf.png" alt="Poster">
+                    <span>Poster</span>
+                </a>
+                
+                <a href="https://www.youtube.com/watch?v=YzROtpjuSaQ" class="paper_button">
+                    <img height="50" src="/assets/icons/video.png" alt="Video">
+                    <span>Video</span>
+                </a>
+                
+            </div>
+            
+        </div>
+        <div id="main">
+            
+            <div class="section abstract-section" id="abstract">
+                
+                <div class="abstract-container">
+                    <div class="abstract-content">
+                        <h2>Abstract</h2>
+                        <p>A large body of recent work targets semantically conditioned image generation. Most such methods focus on the narrower task of pose transfer and ignore the more challenging task of subject transfer that consists in not only transferring the pose but also the appearance and background. In this work, we introduce SCAM (Semantic Cross Attention Modulation), a system that encodes rich and diverse information in each semantic region of the image (including foreground and background), thus achieving precise generation with emphasis on fine details. This is enabled by the Semantic Attention Transformer Encoder that extracts multiple latent vectors for each semantic region, and the corresponding generator that exploits these multiple latents by using semantic cross attention modulation. It is trained only using a reconstruction setup, while subject transfer is performed at test time. Our analysis shows that our proposed architecture is successful at encoding the diversity of appearance in each semantic region. Extensive experiments on the iDesigner and CelebAMask-HD datasets show that SCAM outperforms SEAN and SPADE; moreover, it sets the new state of the art on subject transfer.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div id="approach">
+                <div class="section">
+    <h2 id="Pipeline">Pipeline</h2>
+    <figure style="width:80%; margin:auto; display: block;">
+        <img src="/assets/publications/scam/images/teaser.png">
+        <figcaption>Figure 1: Pipeline of our method. We have trained an encoder-generator architecture. The encoder
+        assigns multiple style codes for each semantic region of the image. We can then mix the style codes such
+        as we keep the background style code from one image and transfer the subject appearance from another. We
+        then use the semantic aware generator (SCAM) with the desired segmentation mask and the respective style
+        code to generate the final image</figcaption>
+    </figure>
+</div>
+            </div>
+            
+            
+            <div class="section" id="poster">
+                <h2>Poster</h2>
+                <figure style="width:100%; margin:auto; display: block;">
+                    <embed src="/assets/publications/scam/poster.pdf" width="100%" height="890" type="application/pdf">
+                </figure>
+            </div>
+            
+            
+            <div class="section" id="video">
+                <h2>Video</h2>
+                <figure style="width:80%; margin:auto; display: block;">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/YzROtpjuSaQ" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </figure>
+            </div>
+            
+            
+            <div class="section" id="bibtex">
+                <h2>Bibtex</h2>
+                <div class="publication-bibtex-container">
+                    <pre class="publication-bibtex"><code>@article{dufour2022scam,
+  title={SCAM! Transferring humans between images with Semantic Cross Attention Modulation},
+  author={Nicolas Dufour, David Picard, Vicky Kalogeiton},
+  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
+  year=2022}
+}</code>
+                        <button class="bibtex-copy-btn" onclick="copyBibtex(this)" aria-label="Copy bibtex">
+                            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </pre>
+                </div>
+            </div>
+            
+            
+            <div class="section" id="acknowledgements">
+                <h2>Acknowledgements</h2>
+                <figure style="width:80%; margin:auto; display: block;">
+                    <p>We would like to thank Dimitrios Papadopoulos, Monika Wysoczanska, Philippe Chiberre and Thibaut Issenhuth for proofreading. We would also like to thank Simon Ebel for the help with the video. This work was granted access to the HPC resources of IDRIS under the allocation 2021-AD011012630 made by GENCI and was supported by a DIM RFSI grant and ANR project TOSAI ANR-20-IADJ-0009.</p>
+                </figure>
+                
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; Nicolas Dufour <span id="currentYear"></span>. Website template made by <a
+                href="https://nicolas-dufour.github.io/">Nicolas Dufour</a>.</p>
+    </footer>
+    <script>
+        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+    </script>
+    <script>
+        document.querySelector('.dropdown-btn').addEventListener('click', function () {
+            var nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking on link only on mobile
+        var links = document.querySelectorAll('nav ul li a');
+        links.forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth <= 600) { // Only hide on mobile
+                    var nav = document.querySelector('nav ul');
+                    nav.classList.remove('show');
+                }
+            });
+        });
+
+        // Reset nav display on window resize
+        window.addEventListener('resize', function () {
+            var nav = document.querySelector('nav ul');
+            if (window.innerWidth > 600) {
+                nav.classList.remove('show');
+                nav.style.display = 'flex';
+            }
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Function to set theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+        }
+
+        // Check for saved theme preference, otherwise use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            setTheme(prefersDarkScheme.matches ? 'dark' : 'light');
+        }
+
+        // Listen for system theme changes when no manual preference is set
+        prefersDarkScheme.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Handle manual theme toggles
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+            setTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+    <script>
+        function copyBibtex(button) {
+            const bibtexText = button.parentElement.querySelector('code').innerText;
+            navigator.clipboard.writeText(bibtexText).then(() => {
+                const span = button.querySelector('span');
+                const originalText = span.textContent;
+                button.classList.add('copied');
+                span.textContent = 'Copied!';
+
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    span.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>

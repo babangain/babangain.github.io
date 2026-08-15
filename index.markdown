@@ -1,8 +1,7 @@
 ---
 layout: main
-title: Nicolas Dufour personal website
-author: Nicolas Dufour
-description: "Personal website of Nicolas Dufour, PhD student in Machine Learning."
-keywords: Nicolas Dufour, computer science, Machine Learning, Computer Vison, diffusion, generative models, PhD student, personal website
-analytics: https://www.googletagmanager.com/gtag/js?id=ANALYTICS_TAG_PLACEHOLDER
+title: Baban Gain · Multilingual NLP Researcher
+author: Baban Gain
+description: "Baban Gain is a doctoral researcher working on machine translation, multilingual NLP, and low-resource language technologies."
+keywords: Baban Gain, natural language processing, machine translation, multilingual NLP, low-resource languages, large language models, IIT Patna
 ---

@@ -1,0 +1,450 @@
+<!-- FILEPATH: /Users/nicolasdufour/Documents/nicolas-dufour-personal-website/_layouts/home.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Around the World in 80 Timesteps: <br> A Generative Approach to Global Visual Geolocation</title>
+        <link rel="stylesheet" href="/css/style_projects.css">
+        <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+        <link rel="alternate icon" type="image/png" href="/assets/favicon.png">
+        
+        <link rel="stylesheet" href="css/projects/plonk.css">
+        
+        <!-- <link rel="icon" type="image/png" href="/images/favicon.png"> -->
+        <meta name="description" content="We propose the first generative approach for global visual geolocation that predicts where an image was captured on Earth. Our model achieves state-of-the-art performance on major benchmarks while handling location ambiguity through probabilistic predictions. The denoising process operates directly on the Earth's surface using Riemannian flow matching.">
+        <meta name="keywords" content="diffusion models, flow matching, Riemannian flow matching, visual geolocation, global visual geolocation, generative models, PLONK">
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=ANALYTICS_TAG_PLACEHOLDER"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'ANALYTICS_TAG_PLACEHOLDER');
+        </script>
+        <script src="/scripts/projects.js"></script>
+    </head>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <button class="dropdown-btn">
+                <img src="/assets/icons/dropdown.svg" alt="Dropdown">
+            </button>
+            <ul>
+                <li><a href="/">Nicolas Dufour</a></li>
+                <li><a href="#">PLONK</a></li>
+                
+                <li><a href="#abstract">Abstract</a></li>
+                
+                
+                <li><a href="#demo">Demo</a></li>
+                
+                <li><a href="#approach">Approach</a></li>
+                
+                
+                
+                <li><a href="#bibtex">Bibtex</a></li>
+                
+            </ul>
+            <div class="nav-buttons">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="project-header">
+            
+            <div class="video-background">
+                <video autoplay loop muted playsinline>
+                    <source src="/assets/publications/plonk/animation.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <h1 class="paper_title">Around the World in 80 Timesteps: <br> A Generative Approach to Global Visual Geolocation</h1>
+            <p class="authors"><a href="/">Nicolas Dufour</a>, <a href="https://davidpicard.github.io/">David Picard</a>, <a href="http://vicky.kalogeiton.info/">Vicky Kalogeiton</a>, <a href="https://loiclandrieu.com/">Loic Landrieu</a></p>
+            <p class="journal">
+                
+            </p>
+            
+            <div class="paper_buttons">
+                
+                <a href="/plonk_game/" class="paper_button">
+                    <img height="50" src="/assets/icons/game.png" alt="Play the Game">
+                    <span>Play the Game</span>
+                </a>
+                
+                <a href="https://github.com/nicolas-dufour/plonk" class="paper_button">
+                    <img height="50" src="/assets/icons/github.png" alt="Code">
+                    <span>Code</span>
+                </a>
+                
+                <a href="https://arxiv.org/abs/2412.06781" class="paper_button">
+                    <img height="50" src="/assets/icons/arxiv.png" alt="Paper">
+                    <span>Paper</span>
+                </a>
+                
+                <a href="#demo" class="paper_button">
+                    <img height="50" src="/assets/icons/gradio.png" alt="Demo">
+                    <span>Demo</span>
+                </a>
+                
+                <a href="https://huggingface.co/nicolas-dufour/PLONK_YFCC" class="paper_button">
+                    <img height="50" src="/assets/icons/hugging_face.png" alt="Models">
+                    <span>Models</span>
+                </a>
+                
+            </div>
+            
+        </div>
+        <div id="main">
+            
+            <div class="section abstract-section" id="abstract">
+                
+                <div class="teaser-section">
+                    <img src="/assets/publications/plonk/teaser.png" alt="Method teaser">
+                    <p class="teaser-caption">Our model predicts location distributions for images from three major visual geolocation datasets: iNat-21 (wildlife), YFCC-100M (natural images), and OSV-5M (street-view). The model can handle varying levels of location ambiguity by outputting appropriate probability distributions.</p>
+                </div>
+                
+                <div class="abstract-container">
+                    <div class="abstract-content">
+                        <h2>Abstract</h2>
+                        <p><p>Introducing the first generative geolocation method based on diffusion and flow matching! We learn the relationship between visual content and location by denoising random locations conditionally to images.</p>
+<p>➜ New SOTA for visual geolocation on OpenStreetView-5M, YFCC-100M, and iNat-21</p>
+<p>➜ Generate global probability density maps and quantify localizability</p>
+<p>➜ Introduce the problem of probabilistic visual geolocation</p></p>
+                    </div>
+                    
+                    <div class="samples-content">
+                        <h2 style="text-align:center; margin-bottom:30px;">Sample Predictions</h2> <div class="slideshow-container"> <!-- Full-width images with number and caption text --> <div class="mySlides fade">
+    <div class="numbertext">1 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/yfcc_low.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/yfcc_low_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">YFCC Dataset - Low Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">2 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/yfcc_medium.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/yfcc_medium_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">YFCC Dataset - Medium Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">3 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/yfcc_high.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/yfcc_high_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">YFCC Dataset - High Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">4 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/osv_low.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/osv_low_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">OpenStreetView Dataset - Low Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">5 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/osv_medium.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/osv_medium_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">OpenStreetView Dataset - Medium Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">6 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/osv_high.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/osv_high_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">OpenStreetView Dataset - High Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">7 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/inat_low.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/inat_low_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">iNaturalist Dataset - Low Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">8 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/inat_medium.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/inat_medium_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">iNaturalist Dataset - Medium Localizability</div>
+</div> <div class="mySlides fade">
+    <div class="numbertext">9 / 9</div>
+    <div class="slide-content">
+        <div class="slide-image">
+            <img src="/assets/publications/plonk/samples/inat_high.png" alt="Input image">
+        </div>
+        <div class="slide-map">
+            <img src="/assets/publications/plonk/samples/inat_high_map.png" alt="Predicted map">
+        </div>
+    </div>
+    <div class="carousel_caption">iNaturalist Dataset - High Localizability</div>
+</div> <!-- Next and previous buttons --> <a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a class="next" onclick="plusSlides(1)">&#10095;</a> </div> <br> <!-- The dots/circles --> <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+    <span class="dot" onclick="currentSlide(7)"></span>
+    <span class="dot" onclick="currentSlide(8)"></span>
+    <span class="dot" onclick="currentSlide(9)"></span>
+</div> <div style="padding-top:30px; text-align:center; font-style:italic;">
+    Sample predicted distributions on different datasets with varying levels of localizability.
+</div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div id="approach">
+                <div class="section">
+    <h2>Pipeline</h2>
+    <div style="width:80%; margin:auto">
+        <img src="/assets/publications/plonk/pipeline.png">
+        <p>Our model operates in three main steps:</p>
+        <ol>
+            <li>A vision encoder Φ extracts features from the input image</li>
+            <li>A conditional flow matching model Ψ progressively denoises coordinates on the Earth's surface by predicting velocity fields at each timestep</li>
+            <li>An ODE solver integrates these velocity fields to obtain the final location distribution</li>
+        </ol>
+        <p>The denoising process operates directly on the Earth's surface using Riemannian flow matching, which ensures that all intermediate points remain valid geographical coordinates.</p>
+        <p>The model can handle location ambiguity through its probabilistic predictions - when an image could have been taken in multiple locations (like a football field), the model outputs a multi-modal distribution covering all plausible locations.</p>
+
+    </div>
+</div>
+<script>
+    let slideIndex = 3;
+    showSlides(slideIndex);
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    function adjustMapHeight() {
+        const currentSlide = document.getElementsByClassName("mySlides")[slideIndex - 1];
+        const image = currentSlide.querySelector(".slide-image img");
+        const mapContainer = currentSlide.querySelector(".slide-map");
+        
+        // Wait for image to load to get its height
+        if (image.complete) {
+            mapContainer.style.height = image.offsetHeight + "px";
+        } else {
+            image.onload = function() {
+                mapContainer.style.height = image.offsetHeight + "px";
+            }
+        }
+    }
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        
+        // Add this line to adjust map height after showing slide
+        adjustMapHeight();
+    }
+    // Add resize listener to handle window resizing
+    window.addEventListener('resize', adjustMapHeight);
+</script>
+            </div>
+            
+            <div class="section" id="demo">
+                <h2>Demo</h2>
+                <iframe src="https://nicolas-dufour-plonk.hf.space" title="Demo" frameborder="0"
+                    style="height: 1000px;width:100%;border:none;overflow:hidden;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            
+            
+            
+            
+            <div class="section" id="bibtex">
+                <h2>Bibtex</h2>
+                <div class="publication-bibtex-container">
+                    <pre class="publication-bibtex"><code>@article{dufour2024world80timestepsgenerative, 
+ &nbsp;&nbsp;  title           ={Around the World in 80 Timesteps: A Generative Approach to Global Visual Geolocation}, 
+ &nbsp;&nbsp;  author          ={Nicolas Dufour and David Picard and Vicky Kalogeiton and Loic Landrieu}, 
+ &nbsp;&nbsp;  year            ={2024}, 
+ &nbsp;&nbsp;  eprint          ={2412.06781}, 
+ &nbsp;&nbsp;  archivePrefix   ={arXiv}, 
+ }</code>
+                        <button class="bibtex-copy-btn" onclick="copyBibtex(this)" aria-label="Copy bibtex">
+                            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </pre>
+                </div>
+            </div>
+            
+            
+            <div class="section" id="acknowledgements">
+                <h2>Acknowledgements</h2>
+                <figure style="width:80%; margin:auto; display: block;">
+                    <p>This work was supported by ANR project TOSAI ANR-20-IADJ-0009, and was granted access to the HPC resources of IDRIS under the allocation 2024-AD011015664 made by GENCI. We would like to thank Julie Mordacq, Elliot Vincent, and Yohann Perron for their helpful feedback.</p>
+                </figure>
+                
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; Nicolas Dufour <span id="currentYear"></span>. Website template made by <a
+                href="https://nicolas-dufour.github.io/">Nicolas Dufour</a>.</p>
+    </footer>
+    <script>
+        document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+    </script>
+    <script>
+        document.querySelector('.dropdown-btn').addEventListener('click', function () {
+            var nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking on link only on mobile
+        var links = document.querySelectorAll('nav ul li a');
+        links.forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth <= 600) { // Only hide on mobile
+                    var nav = document.querySelector('nav ul');
+                    nav.classList.remove('show');
+                }
+            });
+        });
+
+        // Reset nav display on window resize
+        window.addEventListener('resize', function () {
+            var nav = document.querySelector('nav ul');
+            if (window.innerWidth > 600) {
+                nav.classList.remove('show');
+                nav.style.display = 'flex';
+            }
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Function to set theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+        }
+
+        // Check for saved theme preference, otherwise use system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            setTheme(prefersDarkScheme.matches ? 'dark' : 'light');
+        }
+
+        // Listen for system theme changes when no manual preference is set
+        prefersDarkScheme.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Handle manual theme toggles
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+            setTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+    <script>
+        function copyBibtex(button) {
+            const bibtexText = button.parentElement.querySelector('code').innerText;
+            navigator.clipboard.writeText(bibtexText).then(() => {
+                const span = button.querySelector('span');
+                const originalText = span.textContent;
+                button.classList.add('copied');
+                span.textContent = 'Copied!';
+
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    span.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>

@@ -1,0 +1,12 @@
+I"Ì<div class="section">
+    <h2 id="Pipeline">Pipeline</h2>
+    <figure style="width:80%; margin:auto; display: block;">
+        <img src="/assets/publications/scam/images/teaser.png" />
+        <figcaption>Figure 1: Pipeline of our method. We have trained an encoder-generator architecture. The encoder
+        assigns multiple style codes for each semantic region of the image. We can then mix the style codes such
+        as we keep the background style code from one image and transfer the subject appearance from another. We
+        then use the semantic aware generator (SCAM) with the desired segmentation mask and the respective style
+        code to generate the final image</figcaption>
+    </figure>
+</div>
+:ET

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} · Baban Gain</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/logo.svg' | relative_url }}">
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#article-content">Skip to article</a>
+  <header class="site-header scrolled">
+    <div class="nav-shell post-nav-shell">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Baban Gain, home"><span class="brand-mark" aria-hidden="true">BG</span><span class="brand-name">Baban Gain</span></a>
+      <a class="post-back-link" href="{{ '/blog/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a>
+      <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+      </button>
+    </div>
+  </header>
+  <main class="post-page" id="article-content">
+    <article>
+      <header class="post-header">
+        <p class="post-meta"><span>{{ page.date | date: "%d %B %Y" }}</span>{% if page.tags.size > 0 %}<span>{{ page.tags | join: ' · ' }}</span>{% endif %}</p>
+        <h1>{{ page.title }}</h1>
+        {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+      </header>
+      <div class="post-body">{{ content }}</div>
+    </article>
+  </main>
+  <footer class="post-footer">
+    <div class="page-shell"><p>Written by Baban Gain</p><a href="{{ '/blog/' | relative_url }}">More articles <span aria-hidden="true">→</span></a></div>
+  </footer>
+  <script>
+    const root = document.documentElement;
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+  </script>
+</body>
+</html>

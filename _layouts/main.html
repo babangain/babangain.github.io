@@ -1,275 +1,345 @@
-<!-- FILEPATH: /Users/nicolasdufour/Documents/nicolas-dufour-personal-website/_layouts/home.html -->
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
-    <link rel="alternate icon" type="image/png" href="/assets/favicon.png">
-    <meta name="description" content="{{ page.description }}">
-    <meta name="keywords" content="{{ page.keywords | join: ', ' }}">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ page.title }}">
-    <meta property="og:description" content="{{ page.description }}">
-    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/icons/profile_picture.jpg">
-    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description }}">
-    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/icons/profile_picture.jpg">
-    <script async src="{{ page.analytics }}"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'ANALYTICS_TAG_PLACEHOLDER');
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <meta name="keywords" content="{{ page.keywords }}">
+  <meta name="author" content="{{ page.author }}">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/logo.svg' | relative_url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
+  <meta property="og:image" content="{{ site.url }}{{ '/assets/baban_photo_old.png' | relative_url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{{ page.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ '/assets/baban_photo_old.png' | relative_url }}">
+
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
+    })();
+  </script>
 </head>
-
 <body>
-    <a class="skip-link" href="#intro">Skip to content</a>
-    <header>
-        <nav>
-            <button class="dropdown-btn" type="button" aria-controls="nav-menu" aria-expanded="false">
-                <img src="/assets/icons/dropdown.svg" alt="Dropdown">
-            </button>
-            <ul id="nav-menu">
-                <li><a href="#intro">Home</a></li>
-                <li><a href="#about-me">About</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#teaching">Teaching</a></li>
-                <li><a href="#open-source">Open Source</a></li>
-                <li><a href="#misc">Misc</a></li>
-            </ul>
-            <div class="nav-buttons">
-                <button id="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="nav-shell">
+      <a class="brand" href="#about" aria-label="Baban Gain, home">
+        <span class="brand-mark" aria-hidden="true">BG</span>
+        <span class="brand-name">Baban Gain</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a href="#teaching">Teaching Assistantship</a>
+        <a href="#recognitions">Recognitions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  {% assign publication_count = site.data.main.publications | size %}
+  {% assign journal_publications = site.data.main.publications | where: 'type', 'journal' %}
+  {% assign conference_publications = site.data.main.publications | where: 'type', 'conference' %}
+  <main id="main-content">
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="page-shell about-grid">
+        <div class="about-portrait reveal">
+          <div class="portrait-field portrait-photo">
+            <img src="{{ '/assets/baban_photo_old.png' | relative_url }}" alt="Baban Gain" loading="lazy" decoding="async">
+          </div>
+          <p><span></span> Researching language<br>across boundaries.</p>
+        </div>
+        <div class="about-copy reveal">
+          <p class="section-index">01 / About</p>
+          <h2 id="about-title">Hello, I’m<br>Baban Gain.</h2>
+          <p class="about-lead">{{ site.data.main.about_me.bio }}</p>
+          <div class="interest-list">
+            {% for interest in site.data.main.about_me.interests %}
+            <span>{{ interest }}</span>
+            {% endfor %}
+          </div>
+          <div class="about-detail">
+            <div><small>Current role</small><strong>{{ site.data.main.about_me.role }}</strong></div>
+            <div><small>Affiliation</small><strong>{{ site.data.main.about_me.affiliation }}</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section publications-section" id="publications" aria-labelledby="publications-title">
+      <div class="page-shell">
+        <div class="section-heading publications-heading reveal">
+          <div>
+            <p class="section-index">02 / Publications</p>
+            <h2 id="publications-title">Selected record.</h2>
+          </div>
+          <div class="publication-tools" role="group" aria-label="Filter publications">
+            <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All <span>{{ publication_count }}</span></button>
+            <button class="filter-button" type="button" data-filter="journal" aria-pressed="false">Journals <span>{{ journal_publications.size }}</span></button>
+            <button class="filter-button" type="button" data-filter="conference" aria-pressed="false">Conferences <span>{{ conference_publications.size }}</span></button>
+          </div>
+        </div>
+
+        <div class="publication-list" aria-live="polite">
+          {% assign sorted_publications = site.data.main.publications | sort: 'date' | reverse %}
+          {% for publication in sorted_publications %}
+          <article class="publication-item reveal" data-type="{{ publication.type }}">
+            <div class="publication-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+            <div class="publication-main">
+              <div class="publication-meta">
+                <span class="publication-type">{{ publication.type }}</span>
+                <span>{{ publication.year }}</span>
+                {% if publication.featured %}<span class="publication-featured">Selected</span>{% endif %}
+              </div>
+              <h3><a href="{{ publication.paper }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a></h3>
+              {% assign highlighted_authors = publication.authors | replace: 'Baban Gain', '<strong>Baban Gain</strong>' %}
+              <p class="publication-authors">{{ highlighted_authors }}</p>
+              <p class="publication-venue"><strong>{{ publication.venue_short }}</strong> · {{ publication.venue }}{% if publication.pages %} · {{ publication.pages }}{% endif %}</p>
             </div>
-        </nav>
-    </header>
-    <main>
-        <div id="intro">
-            {% include main/intro.html %}
+            <a class="publication-link" href="{{ publication.paper }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ publication.title }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </article>
+          {% endfor %}
         </div>
-        <div id="about-me" class="section">
-            {% include main/about_me.html %}
-        </div>
-        <div id="news" class="section">
-            {% include main/news.html %}
-        </div>
-        <div id="publications" class="section">
-            {% include main/publications.html %}
-        </div>
-        <div id="teaching" class="section">
-            {% include main/teaching.html %}
-        </div>
-        <div id="open-source" class="section">
-            {% include main/open_source.html %}
-        </div>
-        <div id="misc" class="section">
-            {% include main/misc.html %}
-        </div>
-    </main>
-    <footer>
-        <p>&copy; {{ page.author }} <span id="currentYear"></span>. Website template made by <a
-                href="https://nicolas-dufour.github.io/">Nicolas Dufour</a>.</p>
-    </footer>
-    <script>
-        // Sticky nav: elevate on scroll
-        const headerNav = document.querySelector('nav');
-        const onScrollSetNav = () => {
-            if (window.scrollY > 10) headerNav.classList.add('nav-scrolled');
-            else headerNav.classList.remove('nav-scrolled');
-        };
-        onScrollSetNav();
-        window.addEventListener('scroll', onScrollSetNav, { passive: true });
 
-        const dropdownBtn = document.querySelector('.dropdown-btn');
-        const navMenu = document.getElementById('nav-menu');
+        <div class="publication-note reveal">
+          <a href="https://dblp.org/pid/243/3240.html" target="_blank" rel="noopener noreferrer">View full DBLP record
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
 
-        dropdownBtn.addEventListener('click', function () {
-            const isOpen = navMenu.classList.toggle('show');
-            dropdownBtn.setAttribute('aria-expanded', String(isOpen));
-            // Focus first link when opening on mobile
-            if (isOpen && window.innerWidth <= 600) {
-                const firstLink = navMenu.querySelector('a');
-                if (firstLink) firstLink.focus();
-            }
+    <section class="section blog-preview-section" id="blog" aria-labelledby="blog-preview-title">
+      <div class="page-shell">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-index">03 / Blog</p>
+            <h2 id="blog-preview-title">Notes from<br>the research desk.</h2>
+          </div>
+          <p>Writing about multilingual NLP, machine translation, research practice, and the ideas that connect them.</p>
+        </div>
+
+        {% if site.posts.size > 0 %}
+        <div class="post-preview-grid">
+          {% for post in site.posts limit:3 %}
+          <article class="post-preview-card reveal">
+            <p class="post-meta"><span>{{ post.date | date: "%d %b %Y" }}</span>{% if post.tags.size > 0 %}<span>{{ post.tags | first }}</span>{% endif %}</p>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+            <a class="text-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="content-empty-state reveal">
+          <span class="empty-state-mark" aria-hidden="true">Aa</span>
+          <div>
+            <p class="empty-state-kicker">The notebook is open</p>
+            <h3>First articles coming soon.</h3>
+            <p>The blog is ready for essays, paper notes, tutorials, and research updates.</p>
+          </div>
+          <a class="button button-quiet" href="{{ '/blog/' | relative_url }}">Visit the blog
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="section teaching-section" id="teaching" aria-labelledby="teaching-title">
+      <div class="page-shell">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-index">04 / Teaching Assistantship</p>
+            <h2 id="teaching-title">Learning,<br>shared forward.</h2>
+          </div>
+          <p>A record of teaching assistantships, courses supported, and contributions to student learning.</p>
+        </div>
+
+        {% if site.data.main.teaching.size > 0 %}
+        <div class="teaching-list">
+          {% assign sorted_teaching = site.data.main.teaching | sort: 'start_date' | reverse %}
+          {% for item in sorted_teaching %}
+          <article class="teaching-item reveal">
+            <div class="teaching-term">{{ item.term }}</div>
+            <div>
+              <p>{{ item.role | default: 'Teaching Assistant' }}</p>
+              <h3>{{ item.course }}</h3>
+            </div>
+            <div class="teaching-instructor"><small>Course instructor</small><strong>{{ item.instructor }}</strong></div>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="content-empty-state compact reveal">
+          <span class="empty-state-mark" aria-hidden="true">TA</span>
+          <div>
+            <p class="empty-state-kicker">Teaching record</p>
+            <h3>Assistantship details will appear here.</h3>
+            <p>The section is ready for course names, terms, institutions, and teaching contributions.</p>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="section recognitions-section" id="recognitions" aria-labelledby="recognitions-title">
+      <div class="page-shell">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-index">05 / Recognitions</p>
+            <h2 id="recognitions-title">Milestones<br>along the way.</h2>
+          </div>
+          <p>Fellowships, awards, and acknowledgements supporting the work and its wider impact.</p>
+        </div>
+
+        <div class="recognition-list">
+          {% for recognition in site.data.main.recognitions %}
+          <article class="recognition-item reveal">
+            <span class="recognition-short">{{ recognition.short }}</span>
+            <div>
+              <p>{{ recognition.type }}</p>
+              <h3>{{ recognition.title }}</h3>
+              <span>{{ recognition.organization }}</span>
+            </div>
+            <p>{{ recognition.description }}</p>
+            {% if recognition.link %}
+            <a class="recognition-link" href="{{ recognition.link }}" target="_blank" rel="noopener noreferrer" aria-label="Learn more about {{ recognition.title }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+            {% else %}
+            <span class="recognition-dot" aria-hidden="true"></span>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="page-shell">
+        <div class="contact-intro reveal">
+          <p class="section-index">06 / Contact</p>
+          <h2 id="contact-title">Let’s make language<br><em>more accessible.</em></h2>
+          <p>I’m always glad to talk about life, death, and everything in between.</p>
+          <a class="button button-light" href="mailto:{{ site.email }}">Write to me
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="contact-links reveal">
+          {% for contact in site.data.main.contact %}
+          <a href="{{ contact.url }}"{% unless contact.icon == 'email' %} target="_blank" rel="noopener noreferrer"{% endunless %}>
+            <span class="contact-link-name">{{ contact.name }}</span>
+            <span class="contact-link-label">{{ contact.label }}</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell">
+      <p>© <span id="current-year"></span> Baban Gain</p>
+      <p>Research · Language · Access</p>
+      <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeButton = document.querySelector('.theme-toggle');
+    themeButton.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.primary-nav');
+    menuButton.addEventListener('click', () => {
+      const open = navigation.classList.toggle('is-open');
+      menuButton.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    });
+    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      navigation.classList.remove('is-open');
+      menuButton.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.querySelectorAll('.filter-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll('.filter-button').forEach((item) => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
         });
-
-        // Close dropdown when clicking a link on mobile
-        const links = document.querySelectorAll('#nav-menu li a');
-        links.forEach(function (link) {
-            link.addEventListener('click', function () {
-                if (window.innerWidth <= 600) {
-                    navMenu.classList.remove('show');
-                    dropdownBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
+        document.querySelectorAll('.publication-item').forEach((item) => {
+          item.hidden = filter !== 'all' && item.dataset.type !== filter;
         });
+      });
+    });
 
-        // Close on outside click (mobile)
-        document.addEventListener('click', (e) => {
-            const clickedInsideNav = e.target.closest('nav');
-            if (!clickedInsideNav && window.innerWidth <= 600 && navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-                dropdownBtn.setAttribute('aria-expanded', 'false');
-                dropdownBtn.focus();
-            }
-        });
-
-        // Close on Escape key (mobile)
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && window.innerWidth <= 600 && navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-                dropdownBtn.setAttribute('aria-expanded', 'false');
-                dropdownBtn.focus();
-            }
-        });
-
-        // Reset menu state on resize
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 600) {
-                navMenu.classList.remove('show');
-                dropdownBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // Highlight the nav link for the section currently in view
-        (function setupActiveNavHighlight() {
-            const sectionIds = ['intro', 'about-me', 'news', 'publications', 'teaching', 'open-source', 'misc'];
-            const linkMap = new Map();
-            sectionIds.forEach(function (id) {
-                const link = document.querySelector('#nav-menu a[href="#' + id + '"]');
-                if (link) linkMap.set(id, link);
-            });
-            if (linkMap.size === 0) return;
-
-            function setActive(id) {
-                linkMap.forEach(function (link) { link.classList.remove('active'); });
-                const link = linkMap.get(id);
-                if (link) link.classList.add('active');
-            }
-
-            const visible = new Map();
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        visible.set(entry.target.id, entry.intersectionRatio);
-                    } else {
-                        visible.delete(entry.target.id);
-                    }
-                });
-                let bestId = null;
-                let bestRatio = -1;
-                visible.forEach(function (ratio, id) {
-                    if (ratio > bestRatio) {
-                        bestRatio = ratio;
-                        bestId = id;
-                    }
-                });
-                if (bestId) setActive(bestId);
-            }, {
-                rootMargin: '-20% 0px -55% 0px',
-                threshold: [0, 0.15, 0.35, 0.6, 0.85]
-            });
-
-            sectionIds.forEach(function (id) {
-                const el = document.getElementById(id);
-                if (el) observer.observe(el);
-            });
-
-            // Initial: honor URL hash, otherwise pick whichever section is closest to top
-            const hash = window.location.hash.slice(1);
-            if (hash && linkMap.has(hash)) {
-                setActive(hash);
-            } else {
-                setActive('intro');
-            }
-        })();
-    </script>
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        // Function to set theme
-        function setTheme(theme) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark-theme');
-            } else {
-                document.body.classList.remove('dark-theme');
-            }
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach((item) => revealObserver.observe(item));
 
-        // Check for saved theme preference, otherwise use system preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else {
-            setTheme(prefersDarkScheme.matches ? 'dark' : 'light');
-        }
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 16), { passive: true });
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 
-        // Listen for system theme changes when no manual preference is set
-        prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                setTheme(e.matches ? 'dark' : 'light');
-            }
-        });
-
-        // Handle manual theme toggles
-        themeToggle.addEventListener('click', () => {
-            const newTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
-            setTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggle.setAttribute('aria-pressed', newTheme === 'dark');
-        });
-    </script>
-    <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
-    <script src="https://unpkg.com/three@0.160.0/examples/js/shaders/CopyShader.js" defer></script>
-    <script src="https://unpkg.com/three@0.160.0/examples/js/shaders/LuminosityHighPassShader.js" defer></script>
-    <script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/EffectComposer.js" defer></script>
-    <script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/RenderPass.js" defer></script>
-    <script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/ShaderPass.js" defer></script>
-    <script src="https://unpkg.com/three@0.160.0/examples/js/postprocessing/UnrealBloomPass.js" defer></script>
-    <script src="/scripts/intro-planes.js" defer></script>
-    <script src="/scripts/thesis-thumbnail.js" defer></script>
-    <script src="/scripts/drifting-thumbnail.js" defer></script>
-    <script src="/scripts/surflo-thumbnail.js" defer></script>
-    <script src="/scripts/fid-lottery-thumbnail.js" defer></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "{{ site.data.main.about_me.name }} {{ site.data.main.about_me.surname }}",
-      "jobTitle": "{{ site.data.main.about_me.short_description | strip_html }}",
-      "url": "{{ site.url }}{{ site.baseurl }}",
-      "image": "{{ site.url }}{{ site.baseurl }}{{ site.data.main.about_me.pp_path }}",
-      "sameAs": [{% for c in site.data.main.contact %}{% if forloop.first == false %}, {% endif %}"{{ c.url }}"{% endfor %}]
-    }
-    </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Baban Gain",
+    "url": "{{ site.url }}",
+    "email": "mailto:{{ site.email }}",
+    "image": "{{ site.url }}{{ '/assets/baban_photo_old.png' | relative_url }}",
+    "jobTitle": "Doctoral Researcher",
+    "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Patna"},
+    "sameAs": ["https://github.com/babangain", "https://www.linkedin.com/in/babangain/", "https://orcid.org/0000-0001-8673-7078", "https://dblp.org/pid/243/3240.html"]
+  }
+  </script>
 </body>
+</html>

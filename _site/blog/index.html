@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog · Baban Gain</title>
+  <meta name="description" content="Notes on multilingual NLP, machine translation, research, and language technology by Baban Gain.">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="canonical" href="http://localhost:4000/blog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header scrolled" id="top">
+    <div class="nav-shell">
+      <a class="brand" href="/" aria-label="Baban Gain, home">
+        <span class="brand-mark" aria-hidden="true">BG</span>
+        <span class="brand-name">Baban Gain</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/#about">About</a>
+        <a href="/#publications">Publications</a>
+        <a class="active" href="/blog/">Blog</a>
+        <a href="/#teaching">Teaching Assistantship</a>
+        <a href="/#recognitions">Recognitions</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="blog-page" id="main-content">
+    <section class="blog-index-hero">
+      <div class="page-shell">
+        <p class="section-index">Baban Gain / Blog</p>
+        <h1>Field notes on<br><em>language &amp; learning.</em></h1>
+        <p>Essays, paper notes, tutorials, and observations from research in multilingual NLP and machine translation.</p>
+      </div>
+    </section>
+
+    <section class="blog-index-list" aria-labelledby="articles-title">
+      <div class="page-shell">
+        <div class="blog-list-heading">
+          <h2 id="articles-title">All articles</h2>
+          <span>00</span>
+        </div>
+        
+        <div class="blog-empty">
+          <span aria-hidden="true">01</span>
+          <div>
+            <h2>The first note is being written.</h2>
+            <p>New writing on multilingual AI, translation, and research practice will appear here.</p>
+          </div>
+          <a class="button button-primary" href="mailto:gainbaban@gmail.com">Suggest a topic</a>
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer inner-footer">
+    <div class="page-shell">
+      <p>© <span id="current-year"></span> Baban Gain</p>
+      <p>Research · Language · Access</p>
+      <a href="/">Return home <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+  <script>
+    const root = document.documentElement;
+    document.querySelector('.theme-toggle').addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.primary-nav');
+    menuButton.addEventListener('click', () => {
+      const open = navigation.classList.toggle('is-open');
+      menuButton.classList.toggle('is-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+- title: Prime Minister's Research Fellowship
+  short: PMRF
+  organization: Government of India
+  type: Doctoral Fellowship
+  description: >-
+    Selected for the Prime Minister's Research Fellowship in support of
+    doctoral research in multilingual natural language processing.
+  link: https://www.pmrf.in/
+
+- title: First Prize · SERB–INAE Hackathon
+  short: 1st
+  organization: Jadavpur University
+  type: Team Award · 2022
+  description: >-
+    Awarded first prize as a team member at the 2022 SERB–INAE Hackathon.
+
+- title: Foundation Level CodeChef Certified Programmer
+  short: CC
+  organization: CodeChef
+  type: Professional Certification
+  description: >-
+    Earned the Foundation Level CodeChef Certified Programmer credential.
+
+- title: Outstanding Reviewer
+  short: EACL
+  organization: EACL 2026
+  type: Reviewer Recognition
+  description: >-
+    Recognized as an Outstanding Reviewer at EACL 2026.
+
+- title: Academic Reviewer
+  short: REV
+  organization: AAAI · ACM Computing Surveys · ACM TALLIP · Language Resources and Evaluation
+  type: Academic Service
+  description: >-
+    Reviewer for leading AI and natural language processing conferences and journals.
