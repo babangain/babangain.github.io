@@ -66,6 +66,7 @@
   {% assign publication_count = site.data.main.publications | size %}
   {% assign journal_publications = site.data.main.publications | where: 'type', 'journal' %}
   {% assign conference_publications = site.data.main.publications | where: 'type', 'conference' %}
+  {% assign preprint_publications = site.data.main.publications | where: 'type', 'preprint' %}
   <main id="main-content">
     <section class="section about-section" id="about" aria-labelledby="about-title">
       <div class="page-shell about-grid">
@@ -97,12 +98,13 @@
         <div class="section-heading publications-heading reveal">
           <div>
             <p class="section-index">02 / Publications</p>
-            <h2 id="publications-title">Selected record.</h2>
+            <h2 id="publications-title">Journals, conferences<br>&amp; preprints.</h2>
           </div>
           <div class="publication-tools" role="group" aria-label="Filter publications">
             <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All <span>{{ publication_count }}</span></button>
             <button class="filter-button" type="button" data-filter="journal" aria-pressed="false">Journals <span>{{ journal_publications.size }}</span></button>
             <button class="filter-button" type="button" data-filter="conference" aria-pressed="false">Conferences <span>{{ conference_publications.size }}</span></button>
+            <button class="filter-button" type="button" data-filter="preprint" aria-pressed="false">Preprints <span>{{ preprint_publications.size }}</span></button>
           </div>
         </div>
 
@@ -115,7 +117,7 @@
               <div class="publication-meta">
                 <span class="publication-type">{{ publication.type }}</span>
                 <span>{{ publication.year }}</span>
-                {% if publication.featured %}<span class="publication-featured">Selected</span>{% endif %}
+                {% if publication.status %}<span>{{ publication.status }}</span>{% endif %}
               </div>
               <h3><a href="{{ publication.paper }}" target="_blank" rel="noopener noreferrer">{{ publication.title }}</a></h3>
               {% assign highlighted_authors = publication.authors | replace: 'Baban Gain', '<strong>Baban Gain</strong>' %}

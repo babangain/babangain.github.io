@@ -1,130 +1,197 @@
-- title: "Task-Aware Model Merging via Fisher-Weighted Median"
-  authors: "Baban Gain, Saswati Dana, Udit Sharma, Arnab Kumar Mondal, Prathosh AP, Dinesh Garg, Amith Singhee, Asif Ekbal"
-  venue: Transactions on Machine Learning Research
-  venue_short: TMLR
+- title: "Balancing Global Quality and Pronoun-Specific Feedback for Context-Aware Machine Translation"
+  authors: "Harshit Dhankhar, Baban Gain, Asif Ekbal, Yogesh Mani Tripathi"
+  venue: "Conference on Machine Translation"
+  venue_short: "WMT (Research Track)"
+  year: 2026
+  date: 2026-09-04
+  type: conference
+  status: "Accepted"
+  paper: https://arxiv.org/abs/2501.03008
+
+- title: "One Model to Translate Them All? A Journey to Mount Doom for Multilingual Model Merging"
+  authors: "Baban Gain, Trilok Nath Singh, Asif Ekbal"
+  venue: "Transactions on Association for Computational Linguistics"
+  venue_short: "TACL"
+  year: 2026
+  date: 2026-09-30
+  type: journal
+  status: "Accepted"
+  paper: https://arxiv.org/abs/2604.02881
+
+- title: "Source-Free MT Evaluation Is Not MT Evaluation"
+  authors: "Baban Gain, Ramakrishna Appicharla, Asif Ekbal"
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2026
+  date: 2026-08-01
+  type: preprint
+  paper: https://arxiv.org/abs/2608.20925
+
+- title: "Mind the Pause: Disfluency-Aware Objective Tuning for Multilingual Speech Correction with LLMs"
+  authors: "Deepak Kumar, Baban Gain, Asif Ekbal"
+  venue: "64th Annual Meeting of the Association for Computational Linguistics, Long Papers"
+  venue_short: "ACL"
   year: 2026
   date: 2026-07-01
+  type: conference
+  pages: "46050–46070"
+  paper: https://aclanthology.org/2026.acl-long.2137/
+
+- title: "Task-Aware Model Merging via Fisher-Weighted Median"
+  authors: "Baban Gain, Saswati Dana, Udit Sharma, Arnab Kumar Mondal, Prathosh AP, Dinesh Garg, Amith Singhee, Asif Ekbal"
+  venue: "Transactions on Machine Learning Research"
+  venue_short: "TMLR"
+  year: 2026
+  date: 2026-09-20
   type: journal
+  status: "Accepted"
   paper: https://openreview.net/forum?id=tB6bb0ZosX
-  featured: true
+
+- title: "Which Tokens Need Context? A Reference-Based Analysis of Translation Responsibility Using Fertility and Entropy"
+  authors: "Ramakrishna Appicharla, Baban Gain, Santanu Pal, Asif Ekbal"
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2026
+  date: 2026-06-01
+  type: preprint
+  paper: https://arxiv.org/abs/2606.29489
 
 - title: "Bridging the Linguistic Divide: A Survey on Leveraging Large Language Models for Machine Translation"
   authors: "Baban Gain, Dibyanayan Bandyopadhayay, Asif Ekbal, Trilok Nath Singh"
-  venue: Language Resources and Evaluation
-  venue_short: LRE
+  venue: "Language Resources and Evaluation"
+  venue_short: "LRE"
   year: 2026
   date: 2026-04-28
   type: journal
   pages: "60(2), Article 40"
   paper: https://doi.org/10.1007/s10579-026-09919-7
-  featured: true
+
+
 
 - title: "Impact of Visual Context on Noisy Multimodal NMT: An Empirical Study for English to Indian Languages"
   authors: "Baban Gain, Dibyanayan Bandyopadhyay, Samrat Mukherjee, Chandranath Adak, Asif Ekbal"
-  venue: ACM Transactions on Asian and Low-Resource Language Information Processing
-  venue_short: ACM TALLIP
+  venue: "ACM Transactions on Asian and Low-Resource Language Information Processing"
+  venue_short: "ACM TALLIP"
   year: 2025
   date: 2025-08-01
   type: journal
   pages: "24(8), 1–27"
   paper: https://doi.org/10.1145/3748311
-  featured: true
+
+- title: "Beyond the Sentence: A Survey on Context-Aware Machine Translation with Large Language Models"
+  authors: "Ramakrishna Appicharla, Baban Gain, Santanu Pal, Asif Ekbal"
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2025
+  date: 2025-06-01
+  type: preprint
+  paper: https://arxiv.org/abs/2506.07583
+
+- title: "Transforming Code Understanding: Clustering-Based Retrieval for Improved Summarization in Domain-Specific Languages"
+  authors: "Baban Gain, Dibyanayan Bandyopadhyay, Samrat Mukherjee, Aryan Sahoo, Saswati Dana, Palanivel Kodeswaran, Sayandeep Sen, Asif Ekbal, Dinesh Garg"
+  venue: "31st International Conference on Computational Linguistics, Industry Track"
+  venue_short: "COLING"
+  year: 2025
+  date: 2025-01-19
+  type: conference
+  pages: "546–560"
+  paper: https://aclanthology.org/2025.coling-industry.47/
+
+- title: "SEMANTIFY: Unveiling Memes with Robust Interpretability beyond Input Attribution"
+  authors: "Dibyanayan Bandyopadhyay, Asmit Ganguly, Baban Gain, Asif Ekbal"
+  venue: "33rd International Joint Conference on Artificial Intelligence"
+  venue_short: "IJCAI"
+  year: 2024
+  date: 2024-08-03
+  type: conference
+  pages: "6189–6197"
+  paper: https://www.ijcai.org/proceedings/2024/684
 
 - title: "A Case Study on Context-Aware Neural Machine Translation with Multi-Task Learning"
   authors: "Ramakrishna Appicharla, Baban Gain, Santanu Pal, Asif Ekbal, Pushpak Bhattacharyya"
-  venue: 25th Annual Conference of the European Association for Machine Translation
-  venue_short: EAMT
+  venue: "25th Annual Conference of the European Association for Machine Translation"
+  venue_short: "EAMT"
   year: 2024
   date: 2024-06-24
   type: conference
   pages: "246–257"
   paper: https://aclanthology.org/2024.eamt-1.21/
 
-- title: "SEMANTIFY: Unveiling Memes with Robust Interpretability beyond Input Attribution"
-  authors: "Dibyanayan Bandyopadhyay, Asmit Ganguly, Baban Gain, Asif Ekbal"
-  venue: 33rd International Joint Conference on Artificial Intelligence
-  venue_short: IJCAI
-  year: 2024
-  date: 2024-08-03
-  type: conference
-  pages: "6189–6197"
-  paper: https://www.ijcai.org/proceedings/2024/684
-  featured: true
+- title: "Universal Adversarial Framework to Improve Adversarial Robustness for Diabetic Retinopathy Detection"
+  authors: "Samrat Mukherjee, Dibyanayan Bandyopadhyay, Baban Gain, Asif Ekbal"
+  venue: "arXiv preprint"
+  venue_short: "arXiv"
+  year: 2023
+  date: 2023-12-01
+  type: preprint
+  paper: https://arxiv.org/abs/2312.08193
 
-- title: "A Case Study on Context Encoding in Multi-Encoder based Document-Level Neural Machine Translation"
+
+- title: "Reference Free Domain Adaptation for Translation of Noisy Questions with Question Specific Rewards"
+  authors: "Baban Gain, Ramakrishna Appicharla, Soumya Chennabasavaraj, Nikesh Garera, Asif Ekbal, Muthusamy Chelliah"
+  venue: "Findings of the Association for Computational Linguistics: EMNLP 2023"
+  venue_short: "EMNLP Findings"
+  year: 2023
+  date: 2023-12-01
+  type: conference
+  pages: "207–221"
+  paper: https://aclanthology.org/2023.findings-emnlp.16/
+
+- title: "A Case Study on Context Encoding in Multi-Encoder Based Document-Level Neural Machine Translation"
   authors: "Ramakrishna Appicharla, Baban Gain, Santanu Pal, Asif Ekbal"
-  venue: Machine Translation Summit XIX, Research Track
-  venue_short: MT Summit
+  venue: "Machine Translation Summit XIX, Research Track"
+  venue_short: "MT Summit"
   year: 2023
   date: 2023-09-04
   type: conference
   pages: "160–172"
   paper: https://aclanthology.org/2023.mtsummit-research.14/
 
-- title: "Overview of MTIL Track at FIRE 2023: Machine Translation for Indian Languages"
-  authors: "Surupendu Gangopadhyay, Ganesh Epili, Prasenjit Majumder, Baban Gain, Ramakrishna Appicharla, Asif Ekbal, Arafat Ahsan, Dipti Sharma"
-  venue: 15th Annual Meeting of the Forum for Information Retrieval Evaluation
-  venue_short: FIRE
-  year: 2023
-  date: 2023-12-15
-  type: conference
-  pages: "19–21"
-  paper: https://ceur-ws.org/Vol-3681/T9-1.pdf
-
-- title: "A Deep Transfer Learning Method for Cross-Lingual Natural Language Inference"
-  authors: "Dibyanayan Bandyopadhyay, Arkadipta De, Baban Gain, Tanik Saikh, Asif Ekbal"
-  venue: 13th Language Resources and Evaluation Conference
-  venue_short: LREC
-  year: 2022
-  date: 2022-06-20
-  type: conference
-  pages: "3084–3092"
-  paper: https://aclanthology.org/2022.lrec-1.330/
 
 - title: "Low Resource Chat Translation: A Benchmark for Hindi–English Language Pair"
   authors: "Baban Gain, Ramakrishna Appicharla, Asif Ekbal, Muthusamy Chelliah, Soumya Chennabasavaraj, Nikesh Garera"
-  venue: 15th Conference of the Association for Machine Translation in the Americas, Research Track
-  venue_short: AMTA
+  venue: "15th Conference of the Association for Machine Translation in the Americas, Research Track"
+  venue_short: "AMTA"
   year: 2022
   date: 2022-09-12
   type: conference
   pages: "83–96"
   paper: https://aclanthology.org/2022.amta-research.7/
 
-- title: "Investigating Effectiveness of Multi-Encoder for Conversational Neural Machine Translation"
-  authors: "Baban Gain, Ramakrishna Appicharla, Soumya Chennabasavaraj, Nikesh Garera, Asif Ekbal, Muthusamy Chelliah"
-  venue: Seventh Conference on Machine Translation
-  venue_short: WMT
+- title: "A Deep Transfer Learning Method for Cross-Lingual Natural Language Inference"
+  authors: "Dibyanayan Bandyopadhyay, Arkadipta De, Baban Gain, Tanik Saikh, Asif Ekbal"
+  venue: "13th Language Resources and Evaluation Conference"
+  venue_short: "LREC"
   year: 2022
-  date: 2022-12-07
+  date: 2022-06-20
   type: conference
-  pages: "949–954"
-  paper: https://aclanthology.org/2022.wmt-1.90/
-
-- title: "Not All Contexts Are Important: The Impact of Effective Context in Conversational Neural Machine Translation"
-  authors: "Baban Gain, Rejwanul Haque, Asif Ekbal"
-  venue: International Joint Conference on Neural Networks
-  venue_short: IJCNN
-  year: 2021
-  date: 2021-07-18
-  type: conference
-  pages: "1–8"
-  paper: https://doi.org/10.1109/IJCNN52387.2021.9534444
+  pages: "3084–3092"
+  paper: https://aclanthology.org/2022.lrec-1.330/
 
 - title: "A Transformer-Based Approach to Multilingual Fake News Detection in Low-Resource Languages"
   authors: "Arkadipta De, Dibyanayan Bandyopadhyay, Baban Gain, Asif Ekbal"
-  venue: ACM Transactions on Asian and Low-Resource Language Information Processing
-  venue_short: ACM TALLIP
+  venue: "ACM Transactions on Asian and Low-Resource Language Information Processing"
+  venue_short: "ACM TALLIP"
   year: 2021
   date: 2021-11-02
   type: journal
   pages: "21(1), 1–20"
   paper: https://doi.org/10.1145/3472619
 
+- title: "Not All Contexts Are Important: The Impact of Effective Context in Conversational Neural Machine Translation"
+  authors: "Baban Gain, Rejwanul Haque, Asif Ekbal"
+  venue: "International Joint Conference on Neural Networks"
+  venue_short: "IJCNN"
+  year: 2021
+  date: 2021-07-18
+  type: conference
+  pages: "1–8"
+  paper: https://doi.org/10.1109/IJCNN52387.2021.9534444
+
 - title: "A Neural Framework for English-Hindi Cross-Lingual Natural Language Inference"
   authors: "Tanik Saikh, Arkadipta De, Dibyanayan Bandyopadhyay, Baban Gain, Asif Ekbal"
-  venue: International Conference on Neural Information Processing
-  venue_short: ICONIP
+  venue: "International Conference on Neural Information Processing"
+  venue_short: "ICONIP"
   year: 2020
   date: 2020-11-18
   type: conference
